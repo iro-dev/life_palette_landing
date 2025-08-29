@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="라이프팔레트 - AI 기반 시니어 정서조절 및 맞춤형 미술치료 서비스. 더 다양한 색으로 채우는 Colorful Life">
+    <meta name="keywords" content="시니어 케어, 미술치료, AI 진단, 정서조절, 인지강화">
+    <title>라이프팔레트 - 더 다양한 색으로 채우는 Colorful Life</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="라이프팔레트 - AI 기반 시니어 미술치료">
+    <meta property="og:description" content="AI 진단과 맞춤형 미술처방으로 시니어의 정서조절을 지원합니다">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.lifepalette101.com">
+    
+    <!-- Fonts - Pretendard Korean Typography -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "라이프팔레트",
+        "url": "https://www.lifepalette101.com",
+        "description": "AI 기반 시니어 정서조절 및 맞춤형 미술치료 서비스",
+        "serviceType": "Healthcare Technology"
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="메인 네비게이션">
+            <div class="logo">
+                <h1 class="logo-text">Life Palette</h1>
+                <span class="logo-subtitle">라이프팔레트</span>
+            </div>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#services" role="menuitem">서비스</a></li>
+                <li role="none"><a href="#benefits" role="menuitem">효과</a></li>
+                <li role="none"><a href="#about" role="menuitem">소개</a></li>
+                <li role="none"><a href="#contact" role="menuitem">신청</a></li>
+            </ul>
+            <button class="cta-button" aria-label="AI 진단 시작하기">AI 진단 시작</button>
+            <button class="mobile-menu-toggle" aria-label="모바일 메뉴 열기" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main role="main">
+        <!-- Hero Section -->
+        <section class="hero" id="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h2 id="hero-title" class="hero-title">
+                        라이프팔레트<br>
+                        <span class="hero-subtitle">더 다양한 색으로 채우는</span><br>
+                        <span class="colorful-text">Colorful Life</span>
+                    </h2>
+                    <p class="hero-description">
+                        AI 기반 정서 진단과 맞춤형 미술처방으로<br>
+                        시니어의 마음 건강을 돌보는 혁신적인 솔루션
+                    </p>
+                    <div class="hero-actions">
+                        <button class="primary-button" aria-label="AI 정서 진단 시작하기">
+                            AI 정서 진단 시작하기
+                        </button>
+                        <button class="secondary-button" aria-label="서비스 자세히 보기">
+                            서비스 자세히 보기
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <!-- Interactive Color Palette Experience -->
+                    <div class="color-palette-canvas" id="colorCanvas">
+                        <canvas id="paintCanvas" width="600" height="400"></canvas>
+                        <div class="palette-overlay">
+                            <div class="palette-title">🎨 컬러 팔레트 체험</div>
+                            <div class="palette-subtitle">마우스를 움직여 나만의 색깔을 만들어보세요</div>
+                            <div class="emotion-indicator">
+                                <span class="emotion-text" id="emotionText">평온함</span>
+                                <div class="emotion-color" id="emotionColor"></div>
+                            </div>
+                        </div>
+                        <div class="paint-brush" id="paintBrush">🖌️</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services" aria-labelledby="services-title">
+            <div class="container">
+                <h2 id="services-title" class="section-title">LIFE PALETTE 서비스</h2>
+                <p class="section-subtitle">
+                    라이프팔레트는 시니어 정서조절을 위한 AI 진단과 맞춤형 미술처방 솔루션을 제공합니다.
+                </p>
+                
+                <div class="service-steps">
+                    <article class="step-card" tabindex="0">
+                        <div class="step-number">01</div>
+                        <h3 class="step-title">AI 정서·인지 진단</h3>
+                        <p class="step-description">
+                            개인의 현재 정서 상태와 인지 수준을 AI가 정확히 분석하여 
+                            최적화된 미술치료 방향을 제시합니다.
+                        </p>
+                        <div class="step-visual">
+                            <div class="image-placeholder">AI 진단 과정 이미지</div>
+                        </div>
+                    </article>
+
+                    <article class="step-card" tabindex="0">
+                        <div class="step-number">02</div>
+                        <h3 class="step-title">맞춤형 미술 활동 추천</h3>
+                        <p class="step-description">
+                            진단 결과를 바탕으로 개인에게 가장 적합한 
+                            미술 활동과 색채 처방을 추천합니다.
+                        </p>
+                        <div class="step-visual">
+                            <div class="image-placeholder">미술 활동 추천 이미지</div>
+                        </div>
+                    </article>
+
+                    <article class="step-card" tabindex="0">
+                        <div class="step-number">03</div>
+                        <h3 class="step-title">지속적으로 개인 리포트 관리</h3>
+                        <p class="step-description">
+                            활동 과정과 변화를 지속적으로 모니터링하여 
+                            개인별 성장 리포트를 제공합니다.
+                        </p>
+                        <div class="step-visual">
+                            <div class="image-placeholder">리포트 관리 이미지</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits" id="benefits" aria-labelledby="benefits-title">
+            <div class="container">
+                <h2 id="benefits-title" class="section-title">미술치료의 효과</h2>
+                <p class="section-subtitle">
+                    "미술은 기억을 불러내고, 감정을 표현하며, 마음을 회복하는 힘이 있습니다."
+                </p>
+
+                <div class="benefits-grid">
+                    <article class="benefit-card cognitive" tabindex="0">
+                        <div class="benefit-icon">
+                            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="36" cy="36" r="34" fill="url(#cognitiveGradient)" stroke="url(#cognitiveStroke)" stroke-width="4"/>
+                                <path d="M24 30c0-6.627 5.373-12 12-12s12 5.373 12 12c0 3.314-1.343 6.314-3.515 8.485L42 41h-12l-2.485-2.515C25.343 36.314 24 33.314 24 30z" fill="white" fill-opacity="0.9"/>
+                                <circle cx="30" cy="28" r="2" fill="#64B5F6"/>
+                                <circle cx="42" cy="28" r="2" fill="#64B5F6"/>
+                                <path d="M30 32c2 2 6 2 8 0" stroke="#64B5F6" stroke-width="2" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="cognitiveGradient" x1="0" y1="0" x2="1" y2="1">
+                                        <stop stop-color="#E3F2FD"/>
+                                        <stop offset="1" stop-color="#90CAF9"/>
+                                    </linearGradient>
+                                    <linearGradient id="cognitiveStroke" x1="0" y1="0" x2="1" y2="1">
+                                        <stop stop-color="#64B5F6"/>
+                                        <stop offset="1" stop-color="#2196F3"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">인지 강화</h3>
+                        <p class="benefit-description">
+                            "시각적 색과 형태가 기억과 사고를 깨우고 
+                            소근육의 활동을 돕습니다."
+                        </p>
+                        <ul class="benefit-details" role="list">
+                            <li>기억력 향상</li>
+                            <li>집중력 강화</li>
+                            <li>소근육 운동</li>
+                        </ul>
+                    </article>
+
+                    <article class="benefit-card emotional" tabindex="0">
+                        <div class="benefit-icon">
+                            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="36" cy="36" r="34" fill="url(#emotionalGradient)" stroke="url(#emotionalStroke)" stroke-width="4"/>
+                                <path d="M36 52c-8 0-16-6-16-14 0-4 2-8 6-10 2-1 4-1 6 0 0-2 2-4 4-4s4 2 4 4c2-1 4-1 6 0 4 2 6 6 6 10 0 8-8 14-16 14z" fill="white" fill-opacity="0.9"/>
+                                <circle cx="30" cy="34" r="1.5" fill="#F06292"/>
+                                <circle cx="42" cy="34" r="1.5" fill="#F06292"/>
+                                <path d="M28 42c2 3 8 3 10 0" stroke="#F06292" stroke-width="2.5" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="emotionalGradient" x1="0" y1="0" x2="1" y2="1">
+                                        <stop stop-color="#FCE4EC"/>
+                                        <stop offset="1" stop-color="#F8BBD9"/>
+                                    </linearGradient>
+                                    <linearGradient id="emotionalStroke" x1="0" y1="0" x2="1" y2="1">
+                                        <stop stop-color="#F06292"/>
+                                        <stop offset="1" stop-color="#E91E63"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">정서 회복</h3>
+                        <p class="benefit-description">
+                            "좋은 그림을 보고 손으로 표현하는 과정은 
+                            마음의 상처를 다독입니다."
+                        </p>
+                        <ul class="benefit-details" role="list">
+                            <li>스트레스 해소</li>
+                            <li>자아 표현</li>
+                            <li>감정 안정</li>
+                        </ul>
+                    </article>
+
+                    <article class="benefit-card social" tabindex="0">
+                        <div class="benefit-icon">
+                            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="36" cy="36" r="34" fill="url(#socialGradient)" stroke="url(#socialStroke)" stroke-width="4"/>
+                                <circle cx="28" cy="30" r="8" fill="white" fill-opacity="0.9"/>
+                                <circle cx="44" cy="30" r="8" fill="white" fill-opacity="0.9"/>
+                                <circle cx="28" cy="28" r="2" fill="#66BB6A"/>
+                                <circle cx="44" cy="28" r="2" fill="#66BB6A"/>
+                                <path d="M24 32c1 2 3 2 4 0M40 32c1 2 3 2 4 0" stroke="#66BB6A" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M32 40c2 4 6 4 8 0" stroke="#66BB6A" stroke-width="2.5" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="socialGradient" x1="0" y1="0" x2="1" y2="1">
+                                        <stop stop-color="#E8F5E8"/>
+                                        <stop offset="1" stop-color="#C8E6C9"/>
+                                    </linearGradient>
+                                    <linearGradient id="socialStroke" x1="0" y1="0" x2="1" y2="1">
+                                        <stop stop-color="#66BB6A"/>
+                                        <stop offset="1" stop-color="#4CAF50"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">사회적 교류</h3>
+                        <p class="benefit-description">
+                            "함께 그리는 순간, 마음과 마음이 이어집니다."
+                        </p>
+                        <ul class="benefit-details" role="list">
+                            <li>소통 능력 향상</li>
+                            <li>공동체 참여</li>
+                            <li>관계 형성</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Differentiator Section -->
+        <section class="differentiator" id="differentiator" aria-labelledby="differentiator-title">
+            <div class="container">
+                <h2 id="differentiator-title" class="section-title">라이프팔레트 차별성</h2>
+                <p class="section-subtitle">시니어의 삶을 돌보는 기술, 예술로 이어갑니다.</p>
+
+                <div class="differentiator-grid">
+                    <div class="differentiator-item" tabindex="0">
+                        <div class="differentiator-icon">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="32" cy="32" r="30" fill="url(#aiGradient)" stroke="#FF7043" stroke-width="4"/>
+                                <rect x="20" y="20" width="24" height="16" rx="4" fill="white" fill-opacity="0.9"/>
+                                <circle cx="26" cy="26" r="2" fill="#FF7043"/>
+                                <circle cx="38" cy="26" r="2" fill="#FF7043"/>
+                                <rect x="22" y="30" width="8" height="2" rx="1" fill="#FF7043"/>
+                                <rect x="34" y="30" width="8" height="2" rx="1" fill="#FF7043"/>
+                                <path d="M28 42c2 4 6 4 8 0" stroke="#FF7043" stroke-width="2" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="aiGradient" x1="0" y1="0" x2="1" y2="1">
+                                        <stop stop-color="#FFE0B2"/>
+                                        <stop offset="1" stop-color="#FFCC80"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>AI 맞춤 추천</h3>
+                        <p>"AI가 추천하는 맞춤 미술활동으로 기억과 집중을 깨웁니다."</p>
+                    </div>
+
+                    <div class="differentiator-item" tabindex="0">
+                        <div class="differentiator-icon">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="32" cy="32" r="30" fill="url(#artGradient)" stroke="#E1BEE7" stroke-width="4"/>
+                                <ellipse cx="32" cy="28" rx="12" ry="8" fill="white" fill-opacity="0.9"/>
+                                <path d="M20 36 Q 32 20, 44 36" stroke="#AB47BC" stroke-width="3" stroke-linecap="round" fill="none"/>
+                                <circle cx="25" cy="30" r="2" fill="#FF7043"/>
+                                <circle cx="32" cy="25" r="2" fill="#66BB6A"/>
+                                <circle cx="39" cy="30" r="2" fill="#64B5F6"/>
+                                <path d="M26 42 Q 32 38, 38 42" stroke="#F06292" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                <defs>
+                                    <linearGradient id="artGradient" x1="0" y1="0" x2="1" y2="1">
+                                        <stop stop-color="#F3E5F5"/>
+                                        <stop offset="1" stop-color="#E1BEE7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>감정 맞춤 처방</h3>
+                        <p>"오늘의 감정에 꼭 맞는 색과 선, 마음을 다독이는 치유의 시간."</p>
+                    </div>
+
+                    <div class="differentiator-item" tabindex="0">
+                        <div class="differentiator-icon">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="32" cy="32" r="30" fill="url(#connectGradient)" stroke="#90CAF9" stroke-width="4"/>
+                                <circle cx="22" cy="25" r="6" fill="white" fill-opacity="0.9"/>
+                                <circle cx="42" cy="25" r="6" fill="white" fill-opacity="0.9"/>
+                                <circle cx="32" cy="42" r="6" fill="white" fill-opacity="0.9"/>
+                                <path d="M28 25 Q 32 20, 36 25" stroke="#64B5F6" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                <path d="M22 31 Q 27 35, 32 36" stroke="#64B5F6" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                <path d="M42 31 Q 37 35, 32 36" stroke="#64B5F6" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                <circle cx="22" cy="25" r="2" fill="#64B5F6"/>
+                                <circle cx="42" cy="25" r="2" fill="#64B5F6"/>
+                                <circle cx="32" cy="42" r="2" fill="#64B5F6"/>
+                                <defs>
+                                    <linearGradient id="connectGradient" x1="0" y1="0" x2="1" y2="1">
+                                        <stop stop-color="#E3F2FD"/>
+                                        <stop offset="1" stop-color="#90CAF9"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>새로운 소통의 장</h3>
+                        <p>"함께 그리고 나누며, AI가 연결하는 새로운 소통의 장."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Section -->
+        <section class="application" id="contact" aria-labelledby="application-title">
+            <div class="container">
+                <div class="application-content">
+                    <div class="application-info">
+                        <h2 id="application-title" class="section-title">서비스 신청</h2>
+                        <p class="application-description">
+                            "AI 진단으로 감정을 이해하고, 맞춤형 미술 활동으로 치유와 성장을 경험하세요."
+                        </p>
+                        
+                        <div class="application-benefits">
+                            <div class="benefit-item">
+                                <span class="benefit-icon">✨</span>
+                                <span>개인 맞춤 AI 진단</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">🎨</span>
+                                <span>전문 미술치료사 상담</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">📊</span>
+                                <span>지속적 성장 리포트</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="application-form" role="form" aria-labelledby="application-title">
+                        <div class="form-group">
+                            <label for="name" class="form-label">성함*</label>
+                            <input type="text" id="name" name="name" class="form-input" required 
+                                   aria-describedby="name-help">
+                            <span id="name-help" class="form-help">실명을 입력해주세요</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age" class="form-label">연령대*</label>
+                            <select id="age" name="age" class="form-select" required>
+                                <option value="">선택해주세요</option>
+                                <option value="60-65">60-65세</option>
+                                <option value="66-70">66-70세</option>
+                                <option value="71-75">71-75세</option>
+                                <option value="76-80">76-80세</option>
+                                <option value="80+">80세 이상</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">연락처*</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required 
+                                   placeholder="010-0000-0000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="interest" class="form-label">관심 분야</label>
+                            <div class="checkbox-group" role="group" aria-labelledby="interest">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="interest[]" value="drawing">
+                                    <span class="checkbox-text">그림 그리기</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="interest[]" value="coloring">
+                                    <span class="checkbox-text">컬러링</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="interest[]" value="crafts">
+                                    <span class="checkbox-text">공예</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="interest[]" value="sculpture">
+                                    <span class="checkbox-text">조소</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">궁금한 점</label>
+                            <textarea id="message" name="message" class="form-textarea" 
+                                      placeholder="문의사항이나 특별히 관심 있는 부분을 알려주세요" rows="4"></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="submit-button" aria-label="상담 신청하기">
+                                상담 신청하기
+                            </button>
+                            <p class="privacy-notice">
+                                개인정보는 상담 목적으로만 사용되며, 안전하게 보호됩니다.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Experience Gallery -->
+                <div class="experience-gallery">
+                    <h3 class="gallery-title">체험 갤러리</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <div class="image-placeholder">작품 사진 1</div>
+                            <p class="gallery-caption">수채화 체험</p>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="image-placeholder">작품 사진 2</div>
+                            <p class="gallery-caption">색연필 그리기</p>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="image-placeholder">작품 사진 3</div>
+                            <p class="gallery-caption">공예 활동</p>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="image-placeholder">작품 사진 4</div>
+                            <p class="gallery-caption">집단 미술치료</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission" id="about" aria-labelledby="mission-title">
+            <div class="container">
+                <div class="mission-content">
+                    <h2 id="mission-title" class="section-title">Our Mission</h2>
+                    <div class="mission-statement">
+                        <p class="mission-text-ko">
+                            이제 우리의 목표는 단순히 수명을 연장하는 것이 아니라 
+                            <strong>누리고 즐기고 배우는 것</strong>으로 변화하고 있습니다.
+                        </p>
+                        <blockquote class="mission-text-en" lang="en">
+                            "Committed to care that honors dignity and 
+                            celebrates creative aging in every society."
+                        </blockquote>
+                        <p class="mission-text-ko">
+                            우리는 모든 사회에서 존엄을 지키고, 
+                            창의적으로 나이들기를 응원하는 돌봄을 실천합니다.
+                        </p>
+                    </div>
+
+                    <div class="company-values">
+                        <div class="value-item">
+                            <div class="value-icon">🎯</div>
+                            <h3>혁신적 기술</h3>
+                            <p>AI와 미술치료의 만남으로 새로운 케어를 제공합니다</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">❤️</div>
+                            <h3>존엄한 돌봄</h3>
+                            <p>개인의 존엄성을 최우선으로 하는 맞춤형 서비스</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">🌟</div>
+                            <h3>창의적 노화</h3>
+                            <p>나이가 들어도 계속 성장하고 배울 수 있는 환경</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section company-info">
+                    <h3 class="footer-logo">Life Palette</h3>
+                    <p class="company-description">
+                        AI 기반 시니어 미술치료 전문 기업<br>
+                        창의적 노화와 존엄한 돌봄을 실현합니다
+                    </p>
+                </div>
+
+                <div class="footer-section contact-info">
+                    <h4>연락처</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <span class="contact-label">이메일:</span>
+                            <a href="mailto:info@lifepalette101.com">info@lifepalette101.com</a>
+                        </li>
+                        <li>
+                            <span class="contact-label">전화:</span>
+                            <a href="tel:+82-2-1234-5678">02-1234-5678</a>
+                        </li>
+                        <li>
+                            <span class="contact-label">주소:</span>
+                            <span>서울시 강남구 테헤란로 123</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-section quick-links">
+                    <h4>바로가기</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">서비스 소개</a></li>
+                        <li><a href="#benefits">미술치료 효과</a></li>
+                        <li><a href="#contact">서비스 신청</a></li>
+                        <li><a href="#about">회사 소개</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section social-media">
+                    <h4>소셜 미디어</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" class="social-link facebook">📘</a>
+                        <a href="#" aria-label="Instagram" class="social-link instagram">📷</a>
+                        <a href="#" aria-label="YouTube" class="social-link youtube">📺</a>
+                        <a href="#" aria-label="Blog" class="social-link blog">📝</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2024 Life Palette. All rights reserved.</p>
+                </div>
+                <div class="legal-links">
+                    <a href="#" class="legal-link">개인정보처리방침</a>
+                    <a href="#" class="legal-link">이용약관</a>
+                    <a href="#" class="legal-link">쿠키정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/color-palette.js"></script>
+
+    <!-- Load analytics/tracking scripts if needed -->
+    <script>
+        // Placeholder for analytics
+        console.log('Life Palette website loaded successfully');
+    </script>
+</body>
+</html>

@@ -1,0 +1,651 @@
+/* Life Palette - Responsive Design System */
+/* Mobile-first responsive design with breakpoints */
+
+/* Breakpoint Variables - Already defined in styles.css */
+/* 
+--container-sm: 640px;   Small devices (landscape phones)
+--container-md: 768px;   Medium devices (tablets)
+--container-lg: 1024px;  Large devices (desktops)
+--container-xl: 1280px;  Extra large devices
+--container-2xl: 1536px; 2X large devices
+*/
+
+/* =================================
+   MOBILE FIRST (320px+)
+   Base styles in styles.css
+   ================================= */
+
+/* =================================
+   SMALL MOBILE (480px+)
+   ================================= */
+@media (min-width: 480px) {
+    .hero-title {
+        font-size: var(--text-6xl);
+    }
+    
+    .hero-actions {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .checkbox-group {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =================================
+   TABLET (768px+)
+   ================================= */
+@media (min-width: 768px) {
+    /* Typography adjustments */
+    .section-title {
+        font-size: var(--text-5xl);
+    }
+    
+    .hero-title {
+        font-size: var(--text-6xl);
+    }
+    
+    /* Container padding increase */
+    .container {
+        padding: 0 var(--space-6);
+    }
+    
+    /* Header improvements */
+    .nav-container {
+        padding: 0 var(--space-6);
+    }
+    
+    /* Hero section - 2 column layout */
+    .hero-container {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-12);
+    }
+    
+    .hero-actions {
+        flex-direction: row;
+        gap: var(--space-6);
+    }
+    
+    /* Services - 2 columns on tablet */
+    .service-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-6);
+    }
+    
+    .service-steps .step-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    /* Benefits - keep single column, but wider cards */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .benefit-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: var(--space-6);
+        text-align: left;
+        align-items: start;
+    }
+    
+    .benefit-icon {
+        grid-row: 1 / 3;
+        align-self: center;
+    }
+    
+    .benefit-title {
+        margin-bottom: var(--space-2);
+    }
+    
+    /* Differentiator - 2 columns */
+    .differentiator-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .differentiator-grid .differentiator-item:last-child {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    /* Application form layout */
+    .application-content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-12);
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Mission values - 2 columns */
+    .company-values {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .company-values .value-item:last-child {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    /* Footer - 2x2 grid */
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-8) var(--space-12);
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-4);
+        text-align: center;
+    }
+}
+
+/* =================================
+   DESKTOP (1024px+)
+   ================================= */
+@media (min-width: 1024px) {
+    /* Enhanced typography */
+    .hero-title {
+        font-size: var(--text-6xl);
+        line-height: 1.1;
+    }
+    
+    .section-title {
+        font-size: var(--text-5xl);
+    }
+    
+    /* Container improvements */
+    .container {
+        padding: 0 var(--space-8);
+    }
+    
+    /* Navigation enhancements */
+    .nav-menu {
+        display: flex;
+        gap: var(--space-10);
+    }
+    
+    .mobile-menu-toggle {
+        display: none;
+    }
+    
+    /* Hero section full layout */
+    .hero {
+        padding: var(--space-24) 0 var(--space-20);
+    }
+    
+    .hero-container {
+        gap: var(--space-16);
+    }
+    
+    .hero-content {
+        max-width: 640px;
+    }
+    
+    /* Services - 3 columns */
+    .service-steps {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-8);
+    }
+    
+    .service-steps .step-card:last-child {
+        grid-column: auto;
+        max-width: none;
+        margin: 0;
+    }
+    
+    /* Benefits - 3 columns */
+    .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-8);
+        max-width: none;
+    }
+    
+    .benefit-card {
+        display: block;
+        text-align: center;
+    }
+    
+    .benefit-icon {
+        grid-row: auto;
+        align-self: auto;
+    }
+    
+    .benefit-title {
+        margin-bottom: var(--space-4);
+    }
+    
+    /* Differentiator - 3 columns */
+    .differentiator-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .differentiator-grid .differentiator-item:last-child {
+        grid-column: auto;
+        max-width: none;
+        margin: 0;
+    }
+    
+    /* Application section */
+    .application-content {
+        gap: var(--space-16);
+        align-items: start;
+    }
+    
+    /* Mission values - 3 columns */
+    .company-values {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .company-values .value-item:last-child {
+        grid-column: auto;
+        max-width: none;
+        margin: 0;
+    }
+    
+    /* Footer - 4 columns */
+    .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .footer-bottom {
+        flex-direction: row;
+        text-align: left;
+    }
+    
+    /* Enhanced hover effects for desktop */
+    .step-card:hover,
+    .benefit-card:hover,
+    .differentiator-item:hover {
+        transform: translateY(-8px);
+    }
+}
+
+/* =================================
+   LARGE DESKTOP (1280px+)
+   ================================= */
+@media (min-width: 1280px) {
+    /* Increased spacing for large screens */
+    .hero {
+        padding: var(--space-24) 0 var(--space-24);
+    }
+    
+    .services,
+    .benefits,
+    .differentiator,
+    .application,
+    .mission {
+        padding: var(--space-24) 0;
+    }
+    
+    /* Enhanced hero layout */
+    .hero-container {
+        gap: var(--space-20);
+    }
+    
+    .hero-content {
+        max-width: 700px;
+    }
+    
+    .hero-title {
+        font-size: clamp(var(--text-5xl), 4vw, var(--text-6xl));
+    }
+    
+    /* Card enhancements */
+    .step-card,
+    .benefit-card {
+        padding: var(--space-10);
+    }
+    
+    .application-form {
+        padding: var(--space-10);
+    }
+    
+    /* Footer spacing */
+    .footer {
+        padding: var(--space-20) 0 var(--space-10);
+    }
+}
+
+/* =================================
+   EXTRA LARGE (1536px+)
+   ================================= */
+@media (min-width: 1536px) {
+    /* Maximum width constraints */
+    .hero-container,
+    .container {
+        max-width: var(--container-max);
+    }
+    
+    /* Premium spacing */
+    .hero {
+        padding: var(--space-24) 0 var(--space-24);
+    }
+    
+    .hero-title {
+        font-size: clamp(var(--text-6xl), 3.5vw, 4rem);
+    }
+    
+    /* Enhanced grid gaps */
+    .service-steps,
+    .benefits-grid,
+    .differentiator-grid,
+    .company-values {
+        gap: var(--space-12);
+    }
+    
+    .application-content {
+        gap: var(--space-20);
+    }
+}
+
+/* =================================
+   MOBILE & TABLET SPECIFIC
+   ================================= */
+
+/* Mobile Navigation */
+@media (max-width: 1023px) {
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-top: 1px solid var(--gray-200);
+        box-shadow: var(--shadow-lg);
+        flex-direction: column;
+        gap: 0;
+        padding: var(--space-4);
+        z-index: var(--z-dropdown);
+    }
+    
+    .nav-menu.mobile-open {
+        display: flex;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+    }
+    
+    .nav-menu a {
+        display: block;
+        padding: var(--space-4);
+        border-bottom: 1px solid var(--gray-100);
+    }
+    
+    .nav-menu a:last-child {
+        border-bottom: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* Mobile hero layout */
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+        text-align: center;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        gap: var(--space-4);
+        align-items: center;
+    }
+    
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Mobile application layout */
+    .application-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+    }
+    
+    /* Mobile form adjustments */
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Mobile gallery */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+    }
+    
+    /* Mobile footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        text-align: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-4);
+        text-align: center;
+    }
+    
+    .legal-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-4);
+    }
+}
+
+/* =================================
+   SMALL MOBILE ADJUSTMENTS
+   ================================= */
+@media (max-width: 479px) {
+    /* Reduce spacing for very small screens */
+    .hero,
+    .services,
+    .benefits,
+    .differentiator,
+    .application,
+    .mission {
+        padding: var(--space-16) 0;
+    }
+    
+    .container {
+        padding: 0 var(--space-4);
+    }
+    
+    .hero-title {
+        font-size: var(--text-4xl);
+    }
+    
+    .section-title {
+        font-size: var(--text-3xl);
+    }
+    
+    /* Compact cards */
+    .step-card,
+    .benefit-card,
+    .application-form {
+        padding: var(--space-6);
+    }
+    
+    /* Single column gallery */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Stack form actions */
+    .hero-actions {
+        width: 100%;
+    }
+    
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+        max-width: none;
+    }
+    
+    /* Reduce mission text */
+    .mission-text-ko {
+        font-size: var(--text-lg);
+    }
+    
+    .mission-text-en {
+        font-size: var(--text-xl);
+    }
+}
+
+/* =================================
+   LANDSCAPE MOBILE
+   ================================= */
+@media (max-width: 1023px) and (orientation: landscape) {
+    .hero {
+        padding: var(--space-12) 0;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8);
+        align-items: center;
+    }
+    
+    .hero-title {
+        font-size: var(--text-4xl);
+    }
+    
+    .hero-actions {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+
+/* =================================
+   ACCESSIBILITY & REDUCED MOTION
+   ================================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .mission::before {
+        animation: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --gray-100: #E0E0E0;
+        --gray-200: #C0C0C0;
+        --gray-300: #A0A0A0;
+        --gray-600: #404040;
+        --gray-700: #202020;
+        --gray-800: #000000;
+    }
+    
+    .step-card,
+    .benefit-card,
+    .application-form {
+        border: 2px solid var(--gray-800);
+    }
+    
+    .primary-button,
+    .cta-button,
+    .submit-button {
+        border: 2px solid var(--gray-800);
+    }
+}
+
+/* Dark mode preference */
+@media (prefers-color-scheme: dark) {
+    /* This would be implemented if dark mode is desired */
+    /* Currently maintaining light theme as per design requirements */
+}
+
+/* =================================
+   CONTAINER QUERIES
+   (Future enhancement for better component-based responsive design)
+   ================================= */
+@supports (container-type: inline-size) {
+    .service-steps {
+        container-type: inline-size;
+    }
+    
+    @container (max-width: 600px) {
+        .step-card {
+            padding: var(--space-4);
+        }
+    }
+}
+
+/* =================================
+   PRINT OPTIMIZATION
+   ================================= */
+@media print {
+    /* Responsive print layout */
+    .hero-container,
+    .service-steps,
+    .benefits-grid,
+    .differentiator-grid,
+    .company-values {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-4) !important;
+    }
+    
+    .application-content {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .hero,
+    .services,
+    .benefits,
+    .differentiator,
+    .application,
+    .mission {
+        padding: var(--space-8) 0 !important;
+    }
+    
+    .section-title {
+        font-size: var(--text-3xl) !important;
+    }
+    
+    .hero-title {
+        font-size: var(--text-4xl) !important;
+    }
+}
