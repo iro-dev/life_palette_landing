@@ -15,6 +15,52 @@
    Base styles in styles.css
    ================================= */
 
+/* Mobile color palette optimizations */
+.color-palette-canvas {
+    padding: var(--space-6) !important;
+    margin: var(--space-6) auto var(--space-8) !important;
+    width: 95% !important;
+    max-width: none !important;
+}
+
+#paintCanvas {
+    width: 100% !important;
+    height: 200px !important;
+    border-radius: var(--radius-lg) !important;
+}
+
+.palette-overlay {
+    top: var(--space-4) !important;
+    left: var(--space-4) !important;
+    right: var(--space-4) !important;
+}
+
+.palette-title {
+    font-size: var(--text-xl) !important;
+    margin-bottom: var(--space-2) !important;
+}
+
+.palette-subtitle {
+    font-size: var(--text-sm) !important;
+    margin-bottom: var(--space-4) !important;
+}
+
+.emotion-indicator {
+    gap: var(--space-1) !important;
+}
+
+.emotion-color {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.clear-canvas-btn {
+    bottom: var(--space-2) !important;
+    right: var(--space-2) !important;
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+}
+
 /* =================================
    SMALL MOBILE (480px+)
    ================================= */
@@ -53,6 +99,24 @@
     /* Container padding increase */
     .container {
         padding: 0 var(--space-6);
+    }
+    
+    /* Tablet color palette styles */
+    .color-palette-canvas {
+        padding: var(--space-7) !important;
+        margin: var(--space-8) auto var(--space-10) !important;
+        width: 85% !important;
+        max-width: 600px !important;
+    }
+    
+    #paintCanvas {
+        height: 300px !important;
+    }
+    
+    .palette-overlay {
+        top: var(--space-5) !important;
+        left: var(--space-5) !important;
+        right: var(--space-5) !important;
     }
     
     /* Header improvements */
@@ -170,6 +234,24 @@
     /* Container improvements */
     .container {
         padding: 0 var(--space-8);
+    }
+    
+    /* Desktop color palette styles */
+    .color-palette-canvas {
+        padding: var(--space-8) !important;
+        margin: var(--space-10) auto var(--space-12) !important;
+        width: 80% !important;
+        max-width: 680px !important;
+    }
+    
+    #paintCanvas {
+        height: 400px !important;
+    }
+    
+    .palette-overlay {
+        top: var(--space-6) !important;
+        left: var(--space-6) !important;
+        right: var(--space-6) !important;
     }
     
     /* Navigation enhancements */

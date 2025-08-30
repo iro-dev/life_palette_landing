@@ -507,63 +507,116 @@ a:hover {
 
 .color-palette-canvas {
     position: relative;
-    background: linear-gradient(145deg, #FFFFFF, #F8F9FA);
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.98),
+        rgba(250, 250, 250, 0.95),
+        rgba(248, 250, 252, 0.90)
+    );
     border-radius: var(--radius-3xl);
-    padding: var(--space-6);
-    box-shadow: var(--shadow-2xl);
-    border: 3px solid rgba(255, 204, 128, 0.3);
+    padding: var(--space-8);
+    margin: var(--space-8) auto var(--space-12);
+    box-shadow: 
+        0 20px 40px rgba(255, 138, 128, 0.08),
+        0 10px 20px rgba(129, 199, 132, 0.06),
+        0 4px 8px rgba(78, 205, 196, 0.04),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(255, 204, 128, 0.1);
     overflow: hidden;
     cursor: none;
-    transition: all var(--transition-base);
+    transition: all 0.3s ease;
+    max-width: 680px;
+    width: 90%;
+}
+
+.color-palette-canvas::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, 
+        #A8E6CF, #FFD54F, #FFAB91, #E1BEE7, #90CAF9, 
+        #A8E6CF, #FFD54F, #FFAB91, #E1BEE7, #90CAF9
+    );
+    background-size: 200% 200%;
+    border-radius: var(--radius-3xl);
+    z-index: -1;
+    animation: borderGlow 6s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+@keyframes borderGlow {
+    0%, 100% { 
+        background-position: 0% 50%;
+        opacity: 0.5;
+    }
+    50% { 
+        background-position: 100% 50%;
+        opacity: 0.8;
+    }
 }
 
 .color-palette-canvas:hover {
-    transform: scale(1.02);
-    box-shadow: var(--shadow-2xl), var(--shadow-glow);
-    border-color: rgba(255, 204, 128, 0.5);
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 
+        0 25px 50px rgba(255, 138, 128, 0.12),
+        0 12px 24px rgba(129, 199, 132, 0.08),
+        0 6px 12px rgba(78, 205, 196, 0.06),
+        inset 0 1px 3px rgba(255, 255, 255, 0.95);
+}
+
+.color-palette-canvas:active {
+    transform: translateY(0) scale(1);
+    transition: all 0.1s ease;
 }
 
 #paintCanvas {
-    border-radius: var(--radius-xl);
-    background: radial-gradient(circle, #FAFAFA 0%, #F5F5F5 100%);
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-2xl);
+    background: linear-gradient(135deg, #FAFAFA 0%, #F8F9FA 50%, #F5F5F5 100%);
     transition: all var(--transition-base);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .palette-overlay {
     position: absolute;
-    top: var(--space-4);
-    left: var(--space-4);
-    right: var(--space-4);
+    top: var(--space-6);
+    left: var(--space-6);
+    right: var(--space-6);
     pointer-events: none;
     z-index: 10;
 }
 
 .palette-title {
-    font-size: var(--text-xl);
+    font-size: var(--text-2xl);
     font-weight: 700;
     color: var(--gray-800);
-    margin-bottom: var(--space-2);
-    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--space-3);
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
+    letter-spacing: -0.02em;
 }
 
 .palette-subtitle {
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     color: var(--gray-600);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-6);
     font-weight: 500;
+    line-height: 1.6;
 }
 
 .emotion-indicator {
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-base);
-    border: 1px solid rgba(255, 204, 128, 0.3);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-2xl);
+    box-shadow: 
+        0 8px 16px rgba(255, 138, 128, 0.08),
+        0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 204, 128, 0.2);
     max-width: fit-content;
+    margin-bottom: var(--space-4);
 }
 
 .emotion-text {

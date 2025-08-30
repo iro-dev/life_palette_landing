@@ -72,10 +72,21 @@ class ColorPaletteExperience {
      * Setup canvas properties
      */
     setupCanvas() {
-        // Set canvas size
+        // Set responsive canvas size
         const rect = this.canvas.getBoundingClientRect();
-        this.canvas.width = 600;
-        this.canvas.height = 400;
+        const isMobile = window.innerWidth < 768;
+        const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+        
+        if (isMobile) {
+            this.canvas.width = Math.min(rect.width, 400);
+            this.canvas.height = 200;
+        } else if (isTablet) {
+            this.canvas.width = Math.min(rect.width, 600);
+            this.canvas.height = 300;
+        } else {
+            this.canvas.width = Math.min(rect.width, 720);
+            this.canvas.height = 400;
+        }
         
         // Set initial background
         this.ctx.fillStyle = 'rgba(250, 250, 250, 0.8)';
@@ -83,6 +94,9 @@ class ColorPaletteExperience {
         
         // Welcome message
         this.drawWelcomeMessage();
+        
+        // Handle resize
+        window.addEventListener('resize', () => this.handleResize());
     }
     
     /**
@@ -287,28 +301,40 @@ class ColorPaletteExperience {
      */
     createPaintEffect(mouseX, mouseY) {
         const emotion = this.emotions[this.currentEmotion];
-        const color = emotion.colors[Math.floor(Math.random() * emotion.colors.length)];
+        const speed = Math.sqrt((mouseX - this.lastMousePos.x) ** 2 + (mouseY - this.lastMousePos.y) ** 2);
         
-        // Create multiple paint drops
-        for (let i = 0; i < 3; i++) {
+        // More particles for faster movement
+        const particleCount = Math.min(Math.max(3, Math.floor(speed / 3)), 8);
+        
+        for (let i = 0; i < particleCount; i++) {
+            const color = emotion.colors[Math.floor(Math.random() * emotion.colors.length)];
             const particle = {
-                x: mouseX + (Math.random() - 0.5) * 20,
-                y: mouseY + (Math.random() - 0.5) * 20,
-                radius: Math.random() * 8 + 4,
+                x: mouseX + (Math.random() - 0.5) * 30,
+                y: mouseY + (Math.random() - 0.5) * 30,
+                radius: Math.random() * 12 + 3,
                 color: color,
-                alpha: 0.7,
+                alpha: Math.random() * 0.4 + 0.6,
                 life: 1.0,
-                velocityX: (Math.random() - 0.5) * 2,
-                velocityY: (Math.random() - 0.5) * 2
+                velocityX: (Math.random() - 0.5) * (speed * 0.1 + 1),
+                velocityY: (Math.random() - 0.5) * (speed * 0.1 + 1),
+                rotationSpeed: (Math.random() - 0.5) * 0.2,
+                rotation: 0,
+                shimmer: Math.random() * Math.PI * 2,
+                sparkle: Math.random() > 0.7
             };
             
             this.particles.push(particle);
             this.drawParticle(particle);
         }
         
+        // Add sparkle effects for special emotions
+        if (this.currentEmotion === 'joy' || this.currentEmotion === 'creative') {
+            this.createSparkleEffect(mouseX, mouseY);
+        }
+        
         // Limit particle count
-        if (this.particles.length > 100) {
-            this.particles.splice(0, 20);
+        if (this.particles.length > 150) {
+            this.particles.splice(0, 30);
         }
     }
     
@@ -318,11 +344,86 @@ class ColorPaletteExperience {
     drawParticle(particle) {
         this.ctx.save();
         this.ctx.globalAlpha = particle.alpha;
+        
+        // Add shimmer effect
+        particle.shimmer += 0.1;
+        const shimmerAlpha = (Math.sin(particle.shimmer) + 1) * 0.1 + 0.8;
+        this.ctx.globalAlpha *= shimmerAlpha;
+        
+        // Rotate particle
+        this.ctx.translate(particle.x, particle.y);
+        this.ctx.rotate(particle.rotation);
+        
+        if (particle.sparkle) {
+            // Draw sparkle particle
+            this.drawSparkleParticle(particle);
+        } else {
+            // Draw regular particle with gradient
+            const gradient = this.ctx.createRadialGradient(0, 0, 0, 0, 0, particle.radius);
+            gradient.addColorStop(0, particle.color);
+            gradient.addColorStop(0.7, particle.color + '80');
+            gradient.addColorStop(1, particle.color + '20');
+            
+            this.ctx.fillStyle = gradient;
+            this.ctx.beginPath();
+            this.ctx.arc(0, 0, particle.radius, 0, Math.PI * 2);
+            this.ctx.fill();
+        }
+        
+        this.ctx.restore();
+    }
+    
+    /**
+     * Create sparkle effect for special emotions
+     */
+    createSparkleEffect(mouseX, mouseY) {
+        for (let i = 0; i < 3; i++) {
+            const sparkle = {
+                x: mouseX + (Math.random() - 0.5) * 50,
+                y: mouseY + (Math.random() - 0.5) * 50,
+                radius: Math.random() * 3 + 2,
+                color: '#FFFFFF',
+                alpha: 1.0,
+                life: 1.0,
+                velocityX: (Math.random() - 0.5) * 4,
+                velocityY: (Math.random() - 0.5) * 4,
+                rotationSpeed: Math.random() * 0.4,
+                rotation: 0,
+                shimmer: Math.random() * Math.PI * 2,
+                sparkle: true
+            };
+            
+            this.particles.push(sparkle);
+        }
+    }
+    
+    /**
+     * Draw sparkle particle
+     */
+    drawSparkleParticle(particle) {
+        // Draw star shape
+        const spikes = 4;
+        const outerRadius = particle.radius;
+        const innerRadius = outerRadius * 0.5;
+        
         this.ctx.fillStyle = particle.color;
         this.ctx.beginPath();
-        this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        
+        for (let i = 0; i < spikes * 2; i++) {
+            const radius = i % 2 === 0 ? outerRadius : innerRadius;
+            const angle = (i / (spikes * 2)) * Math.PI * 2;
+            const x = Math.cos(angle) * radius;
+            const y = Math.sin(angle) * radius;
+            
+            if (i === 0) {
+                this.ctx.moveTo(x, y);
+            } else {
+                this.ctx.lineTo(x, y);
+            }
+        }
+        
+        this.ctx.closePath();
         this.ctx.fill();
-        this.ctx.restore();
     }
     
     /**
@@ -344,12 +445,13 @@ class ColorPaletteExperience {
             const particle = this.particles[i];
             
             // Update particle properties
-            particle.life -= 0.01;
-            particle.alpha = particle.life * 0.7;
+            particle.life -= particle.sparkle ? 0.02 : 0.01;
+            particle.alpha = particle.life * (particle.sparkle ? 1.0 : 0.7);
             particle.x += particle.velocityX;
             particle.y += particle.velocityY;
             particle.velocityX *= 0.98;
             particle.velocityY *= 0.98;
+            particle.rotation += particle.rotationSpeed;
             
             // Remove dead particles
             if (particle.life <= 0) {
@@ -398,6 +500,19 @@ class ColorPaletteExperience {
         });
         
         container.appendChild(clearButton);
+    }
+    
+    /**
+     * Handle window resize
+     */
+    handleResize() {
+        if (!this.canvas) return;
+        
+        // Debounce resize events
+        clearTimeout(this.resizeTimeout);
+        this.resizeTimeout = setTimeout(() => {
+            this.setupCanvas();
+        }, 100);
     }
     
     /**
