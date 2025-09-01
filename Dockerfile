@@ -7,7 +7,7 @@ FROM node:18-alpine AS builder
 WORKDIR /app
 
 # Copy source files
-COPY life-palette-website/ ./
+COPY ./ ./
 
 # Stage 2: Production stage with Nginx
 FROM nginx:1.25-alpine
