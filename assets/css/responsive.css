@@ -15,6 +15,94 @@
    Base styles in styles.css
    ================================= */
 
+/* Mobile (767px and below) */
+@media (max-width: 767px) {
+    /* Services Section - Single Column */
+    .service-steps {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-6);
+    }
+
+    .step-card {
+        padding: var(--space-8);
+    }
+
+    .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: var(--text-2xl);
+        margin-bottom: var(--space-6);
+    }
+
+    .step-title {
+        font-size: var(--text-lg);
+    }
+
+    .step-description {
+        font-size: var(--text-sm);
+    }
+
+    .step-visual .image-placeholder {
+        min-height: 120px;
+    }
+
+    /* Benefits Section - Single Column */
+    .benefits-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-6);
+    }
+
+    .benefit-card {
+        padding: var(--space-8);
+    }
+
+    .benefit-icon svg {
+        width: 56px;
+        height: 56px;
+    }
+
+    .benefit-title {
+        font-size: var(--text-xl);
+    }
+
+    .benefit-description {
+        font-size: var(--text-sm);
+    }
+
+    .benefit-details {
+        gap: var(--space-2);
+    }
+
+    .benefit-details li {
+        padding: var(--space-3) var(--space-4);
+        padding-left: var(--space-8);
+        font-size: var(--text-sm);
+    }
+
+    /* Differentiator Section - Single Column */
+    .differentiator-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-6);
+    }
+
+    .differentiator-item {
+        padding: var(--space-6);
+    }
+
+    .differentiator-icon svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    .differentiator-item h3 {
+        font-size: var(--text-lg);
+    }
+
+    .differentiator-item p {
+        font-size: var(--text-sm);
+    }
+}
+
 /* Mobile color palette optimizations */
 .color-palette-canvas {
     padding: var(--space-6) !important;
